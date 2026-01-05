@@ -1,0 +1,20 @@
+
+> docs-website@0.0.0 build
+> docusaurus build
+
+[INFO] Website will be built for all these locales: 
+- es
+- en
+[INFO] [es] Creating an optimized production build...
+[webpackbar] ℹ Compiling Client
+[webpackbar] ℹ Compiling Server
+[webpackbar] ✔ Server: Compiled successfully in 859.90ms
+[webpackbar] ✔ Client: Compiled successfully in 2.81s
+[SUCCESS] Generated static files in "build".
+[INFO] [en] Creating an optimized production build...
+[webpackbar] ℹ Compiling Client
+[webpackbar] ℹ Compiling Server
+[webpackbar] ✔ Server: Compiled successfully in 10.12s
+[webpackbar] ✔ Client: Compiled successfully in 13.76s
+[SUCCESS] Generated static files in "build/en".
+[INFO] Use `npm run serve` command to test your build locally.

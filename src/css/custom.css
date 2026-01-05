@@ -1,0 +1,440 @@
+/**
+ * SendDock Documentation Styles
+ * Chalkboard aesthetic with crayon colors
+ */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Architects+Daughter&display=swap');
+
+/* Light mode - Chalkboard style */
+:root {
+  /* SendDock Chalkboard Palette - Matching main site */
+  --ifm-color-primary: #FFD700;
+  /* Crayon Yellow - PRIMARY */
+  --ifm-color-primary-dark: #e6c200;
+  --ifm-color-primary-darker: #d9b800;
+  --ifm-color-primary-darkest: #b39700;
+  --ifm-color-primary-light: #ffde1a;
+  --ifm-color-primary-lighter: #ffe133;
+  --ifm-color-primary-lightest: #ffe866;
+
+  /* Accent colors */
+  --ifm-color-secondary: #4ECDC4;
+  /* Crayon Teal - ACCENT */
+  --ifm-color-info: #4ECDC4;
+  /* Teal */
+  --ifm-color-success: #95E1D3;
+  /* Mint */
+  --ifm-color-warning: #FFD700;
+  /* Yellow */
+  --ifm-color-danger: #FF6B6B;
+  /* Red */
+
+  /* Background colors */
+  --ifm-background-color: #FAFAFA;
+  --ifm-navbar-background-color: #1a1a1a;
+  --ifm-footer-background-color: #1a1a1a;
+
+  /* Text colors */
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-heading-color: #1a1a1a;
+  --ifm-navbar-link-color: #eeeeee;
+  --ifm-footer-color: #eeeeee;
+  --ifm-link-color: #1a1a1a;
+  --ifm-link-hover-color: #FFD700;
+
+  /* Code blocks */
+  --ifm-code-font-size: 95%;
+  --ifm-code-background: #2b2b2b;
+  --ifm-code-color: #4ECDC4;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 215, 0, 0.1);
+
+  /* Fonts */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --ifm-heading-font-family: 'Architects Daughter', cursive;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.6;
+
+  /* Border radius - organic feel */
+  --ifm-global-radius: 15px;
+  --ifm-button-border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+
+  /* Shadows */
+  --ifm-global-shadow-lw: 2px 3px 0px 0px rgba(0, 0, 0, 0.1);
+  --ifm-global-shadow-md: 3px 5px 0px 0px rgba(0, 0, 0, 0.15);
+  --ifm-global-shadow-tl: 4px 7px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode - Enhanced chalkboard */
+[data-theme='dark'] {
+  --ifm-color-primary: #FFD700;
+  --ifm-color-primary-dark: #e6c200;
+  --ifm-color-primary-darker: #d9b800;
+  --ifm-color-primary-darkest: #b39700;
+  --ifm-color-primary-light: #ffde1a;
+  --ifm-color-primary-lighter: #ffe133;
+  --ifm-color-primary-lightest: #ffe866;
+
+  --ifm-background-color: #1a1a1a;
+  --ifm-background-surface-color: #2b2b2b;
+  --ifm-font-color-base: #f5f5f5;
+  --ifm-heading-color: #ffffff;
+  --ifm-link-color: #FFD700;
+  --ifm-link-hover-color: #4ECDC4;
+
+  --ifm-navbar-background-color: #1a1a1a;
+  --ifm-footer-background-color: #1a1a1a;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 215, 0, 0.1);
+  --ifm-code-background: #2b2b2b;
+}
+
+/* Custom styles for hand-drawn feel */
+.button {
+  border: 2px solid currentColor;
+  box-shadow: var(--ifm-global-shadow-md);
+  transition: all 0.2s ease-in-out;
+  font-family: var(--ifm-font-family-base);
+  font-weight: bold;
+}
+
+.button:hover {
+  transform: rotate(-1deg) scale(1.05);
+  box-shadow: var(--ifm-global-shadow-tl);
+}
+
+.button--primary {
+  background-color: #FFD700;
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.button--primary:hover {
+  background-color: #ffe133;
+  color: #1a1a1a;
+}
+
+.button--secondary {
+  background-color: #4ECDC4;
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.button--secondary:hover {
+  background-color: #62d4cc;
+  color: #1a1a1a;
+}
+
+/* Navbar customization */
+.navbar {
+  border-bottom: 3px solid #FFD700;
+  box-shadow: 0 4px 0 0 rgba(255, 215, 0, 0.3);
+}
+
+.navbar__logo {
+  font-family: var(--ifm-heading-font-family);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFD700 !important;
+}
+
+.navbar__item {
+  font-weight: 600;
+}
+
+.navbar__link:hover {
+  color: #FFD700 !important;
+}
+
+/* Card styles */
+.card {
+  border: 2px solid #FFD700;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-md);
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: rotate(-0.5deg) translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-tl);
+  border-color: #4ECDC4;
+}
+
+/* Hero section */
+.hero {
+  border-bottom: 3px solid #FFD700;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%) !important;
+  background-color: #1a1a1a !important;
+}
+
+.hero--primary {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%) !important;
+  background-color: #1a1a1a !important;
+}
+
+/* Explicit contrast for outline button on dark hero */
+.hero .button--outline {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.hero .button--outline:hover {
+  color: #FFD700;
+  border-color: #FFD700;
+  text-decoration: none;
+}
+
+.hero__title {
+  font-family: var(--ifm-heading-font-family);
+  font-size: 3.5rem;
+  text-shadow: 3px 3px 0px rgba(255, 215, 0, 0.3);
+  color: #FFD700 !important;
+}
+
+.hero__subtitle {
+  color: #eeeeee !important;
+  font-size: 1.5rem;
+}
+
+/* Admonitions (info boxes) */
+.admonition {
+  border: 2px solid;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.admonition-note {
+  border-color: #4ECDC4;
+}
+
+.admonition-tip {
+  border-color: #95E1D3;
+}
+
+.admonition-info {
+  border-color: #4ECDC4;
+}
+
+.admonition-warning {
+  border-color: #FFD700;
+}
+
+.admonition-danger {
+  border-color: #FF6B6B;
+}
+
+/* Code blocks */
+.prism-code {
+  border: 2px solid #4ECDC4;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+/* Inline code */
+code {
+  background-color: #2b2b2b;
+  color: #4ECDC4;
+  border: 1px solid #4ECDC4;
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+}
+
+/* Tables */
+table {
+  border: 2px solid #FFD700;
+  border-radius: var(--ifm-global-radius);
+}
+
+table thead {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+table thead th {
+  border-bottom: 2px solid #FFD700;
+  font-weight: bold;
+}
+
+/* Sidebar */
+.menu__link {
+  border-radius: var(--ifm-global-radius);
+  transition: all 0.2s ease-in-out;
+}
+
+.menu__link:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transform: translateX(4px);
+  color: #FFD700;
+}
+
+.menu__link--active {
+  background-color: rgba(255, 215, 0, 0.2);
+  border-left: 3px solid #FFD700;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: rgba(255, 215, 0, 0.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 5px;
+  border: 2px solid var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffe133;
+}
+
+/* Headings with hand-drawn feel */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ifm-heading-font-family);
+  position: relative;
+}
+
+h1 {
+  color: #FFD700;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 0.5rem;
+}
+
+/* Footer styling */
+.footer {
+  border-top: 3px solid #FFD700;
+}
+
+.footer__title {
+  color: #FFD700;
+  font-family: var(--ifm-heading-font-family);
+}
+
+.footer__link-item:hover {
+  color: #FFD700 !important;
+}
+
+/* Search button styling */
+.DocSearch-Button {
+  border: 2px solid #FFD700 !important;
+  border-radius: var(--ifm-global-radius) !important;
+  background: var(--ifm-background-color) !important;
+  box-shadow: var(--ifm-global-shadow-lw) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.DocSearch-Button:hover {
+  box-shadow: var(--ifm-global-shadow-md) !important;
+  transform: translateY(-1px);
+  border-color: #4ECDC4 !important;
+}
+
+.DocSearch-Button-Key {
+  background: #FFD700 !important;
+  color: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+}
+
+/* Search Modal */
+.DocSearch-Modal {
+  border: 3px solid #FFD700 !important;
+  border-radius: var(--ifm-global-radius) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.DocSearch-SearchBar {
+  border-bottom: 2px solid #FFD700 !important;
+}
+
+.DocSearch-Hit[aria-selected='true'] {
+  background-color: rgba(255, 215, 0, 0.2) !important;
+}
+
+.DocSearch-Hit-source {
+  color: #FFD700 !important;
+  font-family: var(--ifm-heading-font-family) !important;
+}
+
+/* Links */
+a {
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #FFD700;
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border: 2px solid #FFD700;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.pagination-nav__link:hover {
+  border-color: #4ECDC4;
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: scale(1.02);
+}
+
+/* TOC (Table of Contents) */
+.table-of-contents__link {
+  color: var(--ifm-font-color-base);
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+/* Tabs styling */
+.tabs {
+  border-bottom: 2px solid #FFD700;
+  margin-bottom: 1rem;
+}
+
+.tabs__item {
+  border-radius: var(--ifm-global-radius) var(--ifm-global-radius) 0 0;
+  border: 2px solid transparent;
+  border-bottom: none;
+  font-family: var(--ifm-heading-font-family);
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabs__item:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  color: #FFD700;
+}
+
+.tabs__item--active {
+  background-color: var(--ifm-background-color);
+  border-color: #FFD700;
+  color: #FFD700 !important;
+  box-shadow: 0 -3px 0 0 rgba(78, 205, 196, 0.5);
+  /* Subtle teal glow */
+}

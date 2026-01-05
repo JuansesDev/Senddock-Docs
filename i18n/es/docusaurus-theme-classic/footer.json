@@ -1,0 +1,42 @@
+{
+  "link.title.Documentation": {
+    "message": "Documentación",
+    "description": "The title of the footer column"
+  },
+  "link.title.Product": {
+    "message": "Producto",
+    "description": "The title of the footer column"
+  },
+  "link.title.Resources": {
+    "message": "Recursos",
+    "description": "The title of the footer column"
+  },
+  "item.label.Get Started": {
+    "message": "Comenzar",
+    "description": "Footer item"
+  },
+  "item.label.API Reference": {
+    "message": "Referencia API",
+    "description": "Footer item"
+  },
+  "item.label.Guides": {
+    "message": "Guías",
+    "description": "Footer item"
+  },
+  "item.label.Dashboard": {
+    "message": "Dashboard",
+    "description": "Footer item"
+  },
+  "item.label.Templates": {
+    "message": "Plantillas",
+    "description": "Footer item"
+  },
+  "item.label.Settings": {
+    "message": "Configuración",
+    "description": "Footer item"
+  },
+  "copyright": {
+    "message": "Copyright © {year} SendDock. Hecho con amor para desarrolladores.",
+    "description": "The copyright string in the footer"
+  }
+}
