@@ -61,6 +61,10 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      { name: 'keywords', content: 'senddock docs, senddock api, email api documentation, senddock developers' },
+      { name: 'description', content: 'Official documentation for SendDock. Learn how to integrate our Email API, manage subscribers, and send transactional emails.' },
+    ],
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
