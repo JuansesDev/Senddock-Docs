@@ -11,7 +11,7 @@ SendDock usa **Handlebars** como motor de plantillas para personalizar tus email
 Las variables Handlebars se escriben con dobles llaves:
 
 ```handlebars
-Hola {'{{name}}'}, bienvenido a {'{{company}}'}!
+Hola {{name}}, bienvenido a {{company}}!
 ```
 
 Cuando envías el email con datos:
@@ -31,40 +31,40 @@ Hola Juan, bienvenido a SendDock!
 
 SendDock incluye algunas variables especiales que siempre están disponibles:
 
-### {'{{email}}'}
+### `{{email}}`
 
 El email del suscriptor destinatario.
 
 ```handlebars
-Tu cuenta es: {'{{email}}'}
+Tu cuenta es: {{email}}
 ```
 
-### {'{{unsubscribe_link}}'}
+### `{{unsubscribe_link}}`
 
 **Requerido por ley**. Enlace para que el usuario se desuscriba.
 
 ```handlebars
-Si no quieres recibir más emails, puedes <a href="{'{{unsubscribe_link}}'}">desuscribirte aquí</a>.
+Si no quieres recibir más emails, puedes <a href="{{unsubscribe_link}}">desuscribirte aquí</a>.
 ```
 
 :::danger Requisito Legal
 Todos los emails de marketing deben incluir un enlace de desuscripción visible. SendDock genera este enlace automáticamente y maneja las desuscripciones por ti.
 :::
 
-### {'{{project_name}}'}
+### `{{project_name}}`
 
 El nombre del proyecto desde el cual se envía el email.
 
 ```handlebars
-Este email fue enviado por {'{{project_name}}'}.
+Este email fue enviado por {{project_name}}.
 ```
 
-### {'{{current_year}}'}
+### `{{current_year}}`
 
 El año actual (útil para copyrights).
 
 ```handlebars
-© {'{{current_year}}'} Mi Empresa. Todos los derechos reservados.
+© {{current_year}} Mi Empresa. Todos los derechos reservados.
 ```
 
 ## Variables Personalizadas (Metadata)
@@ -88,9 +88,9 @@ Al crear o importar un suscriptor con este metadata:
 Puedes usar estas variables en tu plantilla:
 
 ```handlebars
-Hola {'{{name}}'},
+Hola {{name}},
 
-Como {'{{role}}'} de {'{{company}}'}, queremos informarte que tu plan {'{{plan}}'} expira el {'{{trial_ends}}'}.
+Como {{role}} de {{company}}, queremos informarte que tu plan {{plan}} expira el {{trial_ends}}.
 ```
 
 Resultado:
@@ -108,7 +108,7 @@ Handlebars soporta condicionales para mostrar contenido solo si una variable exi
 
 ```handlebars
 {{#if name}}
-  Hola {'{{name}}'}!
+  Hola {{name}}!
 {{else}}
   ¡Hola!
 {{/if}}
@@ -160,7 +160,7 @@ Si tu metadata incluye arrays, puedes iterar sobre ellos:
 ### Plantilla con Loop
 
 ```handlebars
-Hola {'{{name}}'},
+Hola {{name}},
 
 Gracias por tu compra de:
 
@@ -204,10 +204,10 @@ Puedes tener objetos complejos en metadata:
 Accede con notación de punto:
 
 ```handlebars
-Hola {'{{user.name}}'},
+Hola {{user.name}},
 
-Tu idioma preferido es: {'{{user.preferences.language}}'}
-Tu zona horaria: {'{{user.preferences.timezone}}'}
+Tu idioma preferido es: {{user.preferences.language}}
+Tu zona horaria: {{user.preferences.timezone}}
 ```
 
 ## Valores por Defecto
@@ -215,7 +215,7 @@ Tu zona horaria: {'{{user.preferences.timezone}}'}
 Si una variable podría no existir, usa el operador `||` para proporcionar un valor por defecto:
 
 ```handlebars
-Hola {'{{name || "Usuario"}}'},
+Hola {{name || "Usuario"}},
 ```
 
 Si `name` no existe, mostrará "Hola Usuario,".
@@ -234,8 +234,8 @@ Si tienes fechas en metadata:
 Puedes mostrarlas directamente:
 
 ```handlebars
-Te suscribiste el {'{{subscription_date}}'}.
-Tu próxima renovación es el {'{{renewal_date}}'}.
+Te suscribiste el {{subscription_date}}.
+Tu próxima renovación es el {{renewal_date}}.
 ```
 
 :::tip Formato de Fechas
@@ -254,9 +254,9 @@ Ejemplo:
 Crea enlaces personalizados con variables:
 
 ```handlebars
-<a href="https://myapp.com/dashboard?user={'{{email}}'}">Ver mi Dashboard</a>
+<a href="https://myapp.com/dashboard?user={{email}}">Ver mi Dashboard</a>
 
-<a href="https://myapp.com/offers?plan={'{{plan}}'}&discount={'{{discount_code}}'}">
+<a href="https://myapp.com/offers?plan={{plan}}&discount={{discount_code}}">
   Obtener Descuento
 </a>
 ```
@@ -283,24 +283,24 @@ Solo usa triples llaves con contenido que controles completamente. Nunca con inp
 <!DOCTYPE html>
 <html>
 <body>
-  <h1>¡Bienvenido {'{{name || "a SendDock"}}'}!</h1>
+  <h1>¡Bienvenido {{name || "a SendDock"}}!</h1>
 
-  <p>Gracias por unirte el {'{{subscription_date}}'}.</p>
+  <p>Gracias por unirte el {{subscription_date}}.</p>
 
-  <p>Tu cuenta está asociada con: {'{{email}}'}</p>
+  <p>Tu cuenta está asociada con: {{email}}</p>
 
   {{#if plan "pro"}}
     <p>🎉 ¡Gracias por ser usuario Pro! Tienes acceso completo a todas las funciones.</p>
   {{else}}
-    <p>Actualmente tienes el plan {'{{plan}}'}. <a href="/upgrade">Actualizar a Pro</a></p>
+    <p>Actualmente tienes el plan {{plan}}. <a href="/upgrade">Actualizar a Pro</a></p>
   {{/if}}
 
-  <a href="https://myapp.com/onboarding?email={'{{email}}'}">Comenzar Tour</a>
+  <a href="https://myapp.com/onboarding?email={{email}}">Comenzar Tour</a>
 
   <hr>
   <small>
-    <a href="{'{{unsubscribe_link}}'}">Desuscribirse</a> |
-    © {'{{current_year}}'} {'{{project_name}}'}
+    <a href="{{unsubscribe_link}}">Desuscribirse</a> |
+    © {{current_year}} {{project_name}}
   </small>
 </body>
 </html>
@@ -309,46 +309,46 @@ Solo usa triples llaves con contenido que controles completamente. Nunca con inp
 ### Confirmación de Pedido
 
 ```handlebars
-Hola {'{{customer_name}}'},
+Hola {{customer_name}},
 
-Tu pedido #{'{{order_id}}'} ha sido confirmado.
+Tu pedido #{{order_id}} ha sido confirmado.
 
 Productos:
 {{#each items}}
-- {'{{this.name}}'}: ${'{{this.price}}'}
+- {{this.name}}: ${{this.price}}
 {{/each}}
 
-Total: ${'{{total}}'}
+Total: ${{total}}
 
-Estado del envío: <a href="{'{{tracking_url}}'}">Rastrear pedido</a>
+Estado del envío: <a href="{{tracking_url}}">Rastrear pedido</a>
 
 ¿Necesitas ayuda? Responde a este email.
 
-<a href="{'{{unsubscribe_link}}'}">Desuscribirse de notificaciones de pedidos</a>
+<a href="{{unsubscribe_link}}">Desuscribirse de notificaciones de pedidos</a>
 ```
 
 ### Newsletter Personalizado
 
 ```handlebars
-Hola {'{{first_name || "lector"}}'},
+Hola {{first_name || "lector"}},
 
-Esta semana en {'{{company_name}}'}:
+Esta semana en {{company_name}}:
 
 {{#each articles}}
-<h3>{'{{this.title}}'}</h3>
-<p>{'{{this.excerpt}}'}</p>
-<a href="{'{{this.url}}'}?reader={'{{email}}'}">Leer más</a>
+<h3>{{this.title}}</h3>
+<p>{{this.excerpt}}</p>
+<a href="{{this.url}}?reader={{email}}">Leer más</a>
 {{/each}}
 
 {{#if has_premium "true"}}
 <h3>Contenido Exclusivo para Miembros Premium</h3>
-<p>{'{{premium_content}}'}</p>
+<p>{{premium_content}}</p>
 {{/if}}
 
 Hasta la próxima,
-El equipo de {'{{project_name}}'}
+El equipo de {{project_name}}
 
-<a href="{'{{unsubscribe_link}}'}">Desuscribirse</a>
+<a href="{{unsubscribe_link}}">Desuscribirse</a>
 ```
 
 ## Debugging de Variables
@@ -356,8 +356,8 @@ El equipo de {'{{project_name}}'}
 Si una variable no se muestra, verifica:
 
 1. **¿Existe en metadata?** Revisa el JSON del suscriptor en el dashboard
-2. **¿Nombre correcto?** Las variables son sensibles a mayúsculas: {'{{Name}}'} ≠ {'{{name}}'}
-3. **¿Sintaxis correcta?** Dobles llaves {'{{variable}}'}, no {variable} o [[variable]]
+2. **¿Nombre correcto?** Las variables son sensibles a mayúsculas: `{{Name}}` ≠ `{{name}}`
+3. **¿Sintaxis correcta?** Dobles llaves `{{variable}}`, no `{variable}` o `[[variable]]`
 4. **¿Envío de prueba?** Usa "Enviar Email de Prueba" con datos de muestra para verificar
 
 ### Verificar Metadata en Dashboard
@@ -372,7 +372,7 @@ En la sección de Suscriptores, haz clic en un suscriptor para ver su metadata:
 }
 ```
 
-Solo estas variables estarán disponibles: {'{{name}}'}, {'{{company}}'}, {'{{plan}}'}.
+Solo estas variables estarán disponibles: `{{name}}`, `{{company}}`, `{{plan}}`.
 
 ## Limitaciones
 

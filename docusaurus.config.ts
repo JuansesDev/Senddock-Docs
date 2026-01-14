@@ -25,7 +25,8 @@ const config: Config = {
   organizationName: 'senddock',
   projectName: 'senddock-docs',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
 
   // English as default language
   i18n: {

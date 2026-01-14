@@ -31,7 +31,7 @@ Hello John, welcome to SendDock!
 
 SendDock includes some special variables that are always available:
 
-### {{email}}
+### `{{email}}`
 
 The recipient subscriber's email.
 
@@ -39,7 +39,7 @@ The recipient subscriber's email.
 Your account is: {{email}}
 ```
 
-### {{unsubscribe_link}}
+### `{{unsubscribe_link}}`
 
 **Required by law**. Link for the user to unsubscribe.
 
@@ -51,7 +51,7 @@ If you don't want to receive more emails, you can <a href="{{unsubscribe_link}}"
 All marketing emails must include a visible unsubscribe link. SendDock generates this link automatically and handles unsubscribes for you.
 :::
 
-### {{project_name}}
+### `{{project_name}}`
 
 The name of the project from which the email is sent.
 
@@ -59,7 +59,7 @@ The name of the project from which the email is sent.
 This email was sent by {{project_name}}.
 ```
 
-### {{current_year}}
+### `{{current_year}}`
 
 The current year (useful for copyrights).
 
@@ -356,8 +356,8 @@ The {{project_name}} team
 If a variable doesn't display, check:
 
 1. **Does it exist in metadata?** Check the subscriber's JSON in the dashboard
-2. **Correct name?** Variables are case-sensitive: {{Name}} ≠ {{name}}
-3. **Correct syntax?** Double braces {{variable}}, not {variable} or [[variable]]
+2. **Correct name?** Variables are case-sensitive: `{{Name}}` ≠ `{{name}}`
+3. **Correct syntax?** Double braces `{{variable}}`, not `{variable}` or `[[variable]]`
 4. **Test send?** Use "Send Test Email" with sample data to verify
 
 ### Check Metadata in Dashboard
@@ -372,7 +372,7 @@ In the Subscribers section, click on a subscriber to see their metadata:
 }
 ```
 
-Only these variables will be available: {{name}}, {{company}}, {{plan}}.
+Only these variables will be available: `{{name}}`, `{{company}}`, `{{plan}}`.
 
 ## Limitations
 

@@ -46,7 +46,7 @@ The subscribers table shows your entire contact list with the following informat
 3. Click **"Save"**
 
 :::tip Flexible Metadata
-Metadata fields are completely customizable. You can store any information you need and then use it in your templates with Handlebars variables like {{name}} or {{company}}.
+Metadata fields are completely customizable. You can store any information you need and then use it in your templates with Handlebars variables like `{{name}}` or `{{company}}`.
 :::
 
 ## Subscriber States
