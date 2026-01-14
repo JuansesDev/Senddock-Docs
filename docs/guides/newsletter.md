@@ -14,16 +14,16 @@ This example demonstrates how to set up a Cron Job (e.g., every Monday at 9am) t
 const sendNewsletter = async () => {
   await fetch('https://senddock.dev/api/v1/broadcast', {
     method: 'POST',
-    headers: { 
+    headers: {
       'Authorization': 'Bearer sdk_your_secret_key', // Server-side only
-      'Content-Type': 'application/json' 
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       template: 'weekly-digest', // A template created in Dashboard
       subject: 'Weekly Tech News: AI Agents are here!',
-      filter: { 
+      filter: {
         // Optional: Only send to active users
-        status: 'active' 
+        status: 'active'
       }
     })
   });

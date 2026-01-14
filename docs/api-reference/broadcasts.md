@@ -8,7 +8,7 @@ Send mass emails to your subscribers.
 
 ## Send Broadcast
 
-**Endpoint:** `POST /api/v1/broadcast`  
+**Endpoint:** `POST /api/v1/broadcast`
 **Authentication:** Secret Key (`sdk_...`)
 
 ### Request Parameters
@@ -83,9 +83,9 @@ import TabItem from '@theme/TabItem';
 ```javascript
 await fetch('https://senddock.dev/api/v1/broadcast', {
   method: 'POST',
-  headers: { 
+  headers: {
     'Authorization': 'Bearer sdk_your_secret_key',
-    'Content-Type': 'application/json' 
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     template: 'weekly-digest',

@@ -8,14 +8,14 @@ Welcome to the SendDock API. You can use our API to send transactional emails an
 
 ## Base URL
 
-All requests must be made to:
+All requests should be made to:
 
 ```
 https://senddock.dev/api/v1
 ```
 
 :::info CORS Support
-We support **CORS** for frontend use (using Public Keys).
+We support **CORS** for frontend usage (using Public Keys).
 :::
 
 ## Response Format
@@ -34,13 +34,13 @@ We use standard JSON for all responses.
 We use Bearer Token authentication. You have two types of keys:
 
 - **Public Key (`pk_...`)**: Safe for client-side use (browsers, mobile apps). Only for adding subscribers.
-- **Secret Key (`sdk_...`)**: **Keep secret!** Only for server-side use. Full access to send emails and broadcasts.
+- **Secret Key (`sdk_...`)**: **Keep it secret!** Only for server-side use. Full access for sending emails and broadcasts.
 
-### How API Keys work?
+### How do API Keys work?
 
 1. **Generate an API Key** from the SendDock dashboard (Settings → API Keys).
 2. **Save it in your .env**. Never publish it in the frontend.
-3. **Send the API Key in the header** of every request:
+3. **Send the API Key in the header** of each request:
 
 ```http
 Authorization: Bearer sdk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -53,7 +53,7 @@ SendDock uses Redis to control traffic and protect sending reputation.
 | Endpoint | Base Limit | Notes |
 | :--- | :--- | :--- |
 | `POST /api/v1/send` | 60 req/min | Fast transactional sends. |
-| `POST /api/v1/join` | 60 req/min | User signups. |
+| `POST /api/v1/join` | 60 req/min | User registrations. |
 | `POST /api/v1/broadcast` | 10 req/min | Mass campaign queuing. |
 | `GET endpoints` | 60 req/min | Read queries. |
 

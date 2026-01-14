@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Webhooks
 
-We send `POST` requests to your configured URL when events happen.
+We send `POST` requests to your configured URL when events occur.
 
 ## Events
 
@@ -22,7 +22,7 @@ const hash = crypto.createHmac('sha256', secret).update(JSON.stringify(body)).di
 if (hash !== headers['x-senddock-signature']) throw new Error('Invalid signature');
 ```
 
-## Example Payload
+## Payload Example
 
 ```json
 {

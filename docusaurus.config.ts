@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Documentación SendDock',
-  tagline: 'Plataforma de email para desarrolladores',
+  title: 'SendDock Documentation',
+  tagline: 'Email platform for developers',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # Suscriptores
 
-Gestiona tus suscriptores de email.
+Administra tus suscriptores de correo.
 
-## Añadir Suscriptor
+## Agregar Suscriptor
 
-Agrega un usuario a tu audiencia. Opcionalmente envíales un correo de bienvenida automáticamente.
+Agrega un usuario a tu audiencia. Opcionalmente envíales un correo de bienvenida automático.
 
 ### Endpoint
 
@@ -16,15 +16,15 @@ Agrega un usuario a tu audiencia. Opcionalmente envíales un correo de bienvenid
 POST /api/v1/join
 ```
 
-**Autenticación:** Public Key (`pk_...`) o Secret Key (`sdk_...`)
+**Autenticación:** Clave Pública (`pk_...`) o Clave Secreta (`sdk_...`)
 
-### Parámetros de Petición
+### Parámetros de Solicitud
 
 | Campo | Tipo | Requerido | Descripción |
 | :--- | :--- | :--- | :--- |
 | `email` | `string` | **Sí** | Correo del suscriptor. |
-| `sendWelcomeEmail` | `boolean` | No | Enviar email de bienvenida automático (default: false). |
-| `metadata` | `object` | No | Datos personalizados (source, name, etc.). |
+| `sendWelcomeEmail` | `boolean` | No | Enviar correo de bienvenida automático (por defecto: false). |
+| `metadata` | `object` | No | Datos personalizados (origen, nombre, etc.). |
 
 ### Ejemplos de Código
 
@@ -39,7 +39,7 @@ curl -X POST https://senddock.dev/api/v1/join \
   -H "Authorization: Bearer sdk_..." \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "dev@ejemplo.com",
+    "email": "dev@example.com",
     "metadata": {
       "source": "landing-page",
       "stack": "nextjs"
@@ -54,11 +54,11 @@ curl -X POST https://senddock.dev/api/v1/join \
 await fetch('https://senddock.dev/api/v1/join', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer sdk_tu_key',
+    'Authorization': 'Bearer sdk_your_key',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    email: 'dev@ejemplo.com',
+    email: 'dev@example.com',
     metadata: {
       source: 'landing-page',
       stack: 'nextjs'
@@ -75,11 +75,11 @@ import requests
 
 url = "https://senddock.dev/api/v1/join"
 headers = {
-    "Authorization": "Bearer sdk_tu_key",
+    "Authorization": "Bearer sdk_your_key",
     "Content-Type": "application/json"
 }
 payload = {
-    "email": "dev@ejemplo.com",
+    "email": "dev@example.com",
     "metadata": {
         "source": "landing-page",
         "stack": "nextjs"
@@ -106,7 +106,7 @@ import (
 func main() {
 	url := "https://senddock.dev/api/v1/join"
 	payload := map[string]interface{}{
-		"email": "dev@ejemplo.com",
+		"email": "dev@example.com",
 		"metadata": map[string]string{
 			"source": "landing-page",
 			"stack":  "nextjs",
@@ -115,7 +115,7 @@ func main() {
 	jsonData, _ := json.Marshal(payload)
 
 	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
-	req.Header.Set("Authorization", "Bearer sdk_tu_key")
+	req.Header.Set("Authorization", "Bearer sdk_your_key")
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
@@ -138,7 +138,7 @@ public class AddSubscriber {
     public static void main(String[] args) throws Exception {
         String json = """
             {
-                "email": "dev@ejemplo.com",
+                "email": "dev@example.com",
                 "metadata": {
                     "source": "landing-page",
                     "stack": "nextjs"
@@ -148,7 +148,7 @@ public class AddSubscriber {
 
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://senddock.dev/api/v1/join"))
-            .header("Authorization", "Bearer sdk_tu_key")
+            .header("Authorization", "Bearer sdk_your_key")
             .header("Content-Type", "application/json")
             .POST(HttpRequest.BodyPublishers.ofString(json))
             .build();
@@ -168,7 +168,7 @@ public class AddSubscriber {
 {
   "success": true,
   "data": {
-    "email": "dev@ejemplo.com",
+    "email": "dev@example.com",
     "message": "Successfully subscribed"
   }
 }
@@ -184,12 +184,12 @@ Lista los suscriptores de tu proyecto con paginación.
 GET /api/v1/subscribers
 ```
 
-**Autenticación:** Secret Key (`sdk_...`)
+**Autenticación:** Clave Secreta (`sdk_...`)
 
 ### Parámetros de Consulta
 
-- `limit` (default: 50, max: 100)
-- `offset` (default: 0)
+- `limit` (por defecto: 50, máx: 100)
+- `offset` (por defecto: 0)
 
 ### Ejemplos de Código
 
@@ -207,7 +207,7 @@ curl -X GET 'https://senddock.dev/api/v1/subscribers?limit=50&offset=0' \
 ```javascript
 const params = new URLSearchParams({ limit: '50', offset: '0' });
 await fetch(`https://senddock.dev/api/v1/subscribers?${params}`, {
-  headers: { 'Authorization': 'Bearer sdk_tu_key' }
+  headers: { 'Authorization': 'Bearer sdk_your_key' }
 });
 ```
 
@@ -219,7 +219,7 @@ import requests
 
 url = "https://senddock.dev/api/v1/subscribers"
 params = {"limit": 50, "offset": 0}
-headers = {"Authorization": "Bearer sdk_tu_key"}
+headers = {"Authorization": "Bearer sdk_your_key"}
 
 response = requests.get(url, headers=headers, params=params)
 print(response.json())
@@ -239,7 +239,7 @@ import (
 func main() {
 	url := "https://senddock.dev/api/v1/subscribers?limit=50&offset=0"
 	req, _ := http.NewRequest("GET", url, nil)
-	req.Header.Set("Authorization", "Bearer sdk_tu_key")
+	req.Header.Set("Authorization", "Bearer sdk_your_key")
 
 	resp, _ := http.DefaultClient.Do(req)
 	defer resp.Body.Close()
@@ -260,7 +260,7 @@ public class ListSubscribers {
     public static void main(String[] args) throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://senddock.dev/api/v1/subscribers?limit=50&offset=0"))
-            .header("Authorization", "Bearer sdk_tu_key")
+            .header("Authorization", "Bearer sdk_your_key")
             .GET()
             .build();
 
@@ -281,7 +281,7 @@ public class ListSubscribers {
   "data": {
     "subscribers": [
       {
-        "email": "usuario@ejemplo.com",
+        "email": "user@example.com",
         "metadata": { "source": "twitter" },
         "createdAt": "2024-01-15T10:30:00Z"
       }

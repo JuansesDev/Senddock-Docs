@@ -8,7 +8,7 @@ A common scenario: A user fills out a contact form. You want to:
 1. Send a confirmation email to the **User**.
 2. Send a notification email to the **Admin** (you).
 
-:::info Credits Usage
+:::info Credit Usage
 This flow sends **2 separate emails**. It will consume **2 credits** from your monthly quota.
 :::
 
@@ -22,9 +22,9 @@ const handleContactForm = async (req, res) => {
   // 1. Send Confirmation to User
   await fetch('https://senddock.dev/api/v1/send', {
     method: 'POST',
-    headers: { 
-      'Authorization': 'Bearer sdk_...', 
-      'Content-Type': 'application/json' 
+    headers: {
+      'Authorization': 'Bearer sdk_...',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       email: userEmail,
@@ -36,14 +36,14 @@ const handleContactForm = async (req, res) => {
   // 2. Send Notification to Admin
   await fetch('https://senddock.dev/api/v1/send', {
     method: 'POST',
-    headers: { 
-      'Authorization': 'Bearer sdk_...', 
-      'Content-Type': 'application/json' 
+    headers: {
+      'Authorization': 'Bearer sdk_...',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       email: 'admin@yourcompany.com',
       template: 'admin-new-lead',
-      data: { 
+      data: {
         name: userName,
         message: message,
         email: userEmail

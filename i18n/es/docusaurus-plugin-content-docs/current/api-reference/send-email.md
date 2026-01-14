@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# Enviar Email
+# Enviar Correo
 
-Envía un correo transaccional usando una plantilla o HTML puro.
+Envía un correo electrónico transaccional usando una plantilla o HTML directo.
 
 ## Endpoint
 
@@ -12,16 +12,16 @@ Envía un correo transaccional usando una plantilla o HTML puro.
 POST /api/v1/send
 ```
 
-**Autenticación:** Secret Key (`sdk_...`)
+**Autenticación:** Clave Secreta (`sdk_...`)
 
-## Parámetros de Petición
+## Parámetros de Solicitud
 
 | Campo | Tipo | Requerido | Descripción |
 | :--- | :--- | :--- | :--- |
 | `email` o `to` | `string` | **Sí** | Correo del destinatario. |
 | `template` | `string` | **Sí*** | Nombre de la plantilla (ej. `welcome`). |
 | `html` | `string` | **Sí*** | Contenido HTML (si no usas `template`). |
-| `subject` | `string` | No | Sobrescribir asunto. |
+| `subject` | `string` | No | Sobrescribir el asunto. |
 | `data` | `object` | No | Variables para reemplazar en la plantilla. |
 
 :::info
@@ -37,22 +37,22 @@ curl -X POST https://senddock.dev/api/v1/send \
   -H "Authorization: Bearer sdk_..." \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "usuario@ejemplo.com",
+    "email": "user@example.com",
     "template": "welcome",
-    "data": { "name": "Desarrollador" }
+    "data": { "name": "Developer" }
   }'
 ```
 
-### Usando HTML Puro
+### Usando HTML Directo
 
 ```bash
 curl -X POST https://senddock.dev/api/v1/send \
   -H "Authorization: Bearer sdk_..." \
   -H "Content-Type: application/json" \
   -d '{
-    "to": "usuario@ejemplo.com",
-    "html": "<h1>¡Hola!</h1>",
-    "subject": "HTML Directo"
+    "to": "user@example.com",
+    "html": "<h1>Hello!</h1>",
+    "subject": "Direct HTML"
   }'
 ```
 
@@ -66,14 +66,14 @@ import TabItem from '@theme/TabItem';
 await fetch('https://senddock.dev/api/v1/send', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer sdk_tu_api_key',
+    'Authorization': 'Bearer sdk_your_api_key',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    to: 'usuario@ejemplo.com',
+    to: 'user@example.com',
     template: 'welcome',
     data: {
-      name: 'Juan',
+      name: 'John',
       activationLink: 'https://...'
     }
   })
@@ -88,14 +88,14 @@ import requests
 
 url = "https://senddock.dev/api/v1/send"
 headers = {
-    "Authorization": "Bearer sdk_tu_api_key",
+    "Authorization": "Bearer sdk_your_api_key",
     "Content-Type": "application/json"
 }
 payload = {
-    "to": "usuario@ejemplo.com",
+    "to": "user@example.com",
     "template": "welcome",
     "data": {
-        "name": "Juan",
+        "name": "John",
         "activationLink": "https://..."
     }
 }
@@ -120,17 +120,17 @@ import (
 func main() {
 	url := "https://senddock.dev/api/v1/send"
 	payload := map[string]interface{}{
-		"to":       "usuario@ejemplo.com",
+		"to":       "user@example.com",
 		"template": "welcome",
 		"data": map[string]string{
-			"name":           "Juan",
+			"name":           "John",
 			"activationLink": "https://...",
 		},
 	}
 	jsonData, _ := json.Marshal(payload)
 
 	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
-	req.Header.Set("Authorization", "Bearer sdk_tu_api_key")
+	req.Header.Set("Authorization", "Bearer sdk_your_api_key")
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
@@ -153,10 +153,10 @@ public class EmailSender {
     public static void main(String[] args) throws Exception {
         String jsonPayload = """
             {
-                "to": "usuario@ejemplo.com",
+                "to": "user@example.com",
                 "template": "welcome",
                 "data": {
-                    "name": "Juan",
+                    "name": "John",
                     "activationLink": "https://..."
                 }
             }
@@ -164,7 +164,7 @@ public class EmailSender {
 
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://senddock.dev/api/v1/send"))
-            .header("Authorization", "Bearer sdk_tu_api_key")
+            .header("Authorization", "Bearer sdk_your_api_key")
             .header("Content-Type", "application/json")
             .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))
             .build();
@@ -190,7 +190,7 @@ public class EmailSender {
   "data": {
     "message": "Email sent successfully",
     "template": "welcome-email",
-    "to": "usuario@ejemplo.com"
+    "to": "user@example.com"
   }
 }
 ```
@@ -206,17 +206,17 @@ public class EmailSender {
 
 ## Plantillas del Sistema
 
-Si no has creado una plantilla personalizada en el dashboard, puedes usar estas plantillas integradas:
+Si no has creado una plantilla personalizada en el panel, puedes usar estas plantillas integradas:
 
-- `verification`: Para códigos de verificación de email.
+- `verification`: Para códigos de verificación de correo.
 - `welcome`: Un correo de bienvenida genérico.
 - `purchase_confirmation`: Confirmación de pedido simple.
 - `credentials`: Para enviar contraseñas temporales o credenciales.
 
 ## Sintaxis de Plantillas (Handlebars)
 
-Soportamos sintaxis Handlebars completa:
+Soportamos sintaxis completa de Handlebars:
 
 - **Variables**: `{{name}}`
-- **Condicionales**: `{{#if premium}} ... {{/if}}`
-- **Bucles**: `{{#each items}} {{this.name}} {{/each}}`
+- **Condicionales**: `{{#if premium}}`  ... `{{/if}}`
+- **Bucles**: `{{#each items}}`  `{{this.name}}`  `{{/each}}`

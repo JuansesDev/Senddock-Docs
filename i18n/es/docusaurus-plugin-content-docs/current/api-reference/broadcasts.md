@@ -8,10 +8,10 @@ Envía correos masivos a tus suscriptores.
 
 ## Enviar Broadcast
 
-**Endpoint:** `POST /api/v1/broadcast`  
-**Autenticación:** Secret Key (`sdk_...`)
+**Endpoint:** `POST /api/v1/broadcast`
+**Autenticación:** Clave Secreta (`sdk_...`)
 
-### Parámetros de Petición
+### Parámetros de Solicitud
 
 | Campo | Tipo | Requerido | Descripción |
 | :--- | :--- | :--- | :--- |
@@ -47,20 +47,20 @@ curl -X POST https://senddock.dev/api/v1/broadcast \
   }'
 ```
 
-### Ejemplo con HTML Puro
+### Ejemplo con HTML Directo
 
 ```bash
 curl -X POST https://senddock.dev/api/v1/broadcast \
   -H "Authorization: Bearer sdk_..." \
   -H "Content-Type: application/json" \
   -d '{
-    "subject": "Novedades de Noviembre",
-    "html": "<h1>Hola {{name}}!</h1><p>...</p><a href=\"{{unsubscribe_link}}\">Cancelar suscripción</a>",
+    "subject": "Actualizaciones de Noviembre",
+    "html": "<h1>¡Hola {{name}}!</h1><p>...</p><a href=\"{{unsubscribe_link}}\">Cancelar suscripción</a>",
     "filter": { "status": "confirmed" }
   }'
 ```
 
-### Respuesta (202 Accepted)
+### Respuesta (202 Aceptado)
 
 ```json
 {
@@ -83,13 +83,13 @@ import TabItem from '@theme/TabItem';
 ```javascript
 await fetch('https://senddock.dev/api/v1/broadcast', {
   method: 'POST',
-  headers: { 
-    'Authorization': 'Bearer sdk_tu_secret_key',
-    'Content-Type': 'application/json' 
+  headers: {
+    'Authorization': 'Bearer sdk_your_secret_key',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     template: 'weekly-digest',
-    subject: 'Noticias Tech',
+    subject: 'Noticias Tecnológicas Semanales',
     filter: { status: 'active' }
   })
 });
@@ -103,12 +103,12 @@ import requests
 
 url = "https://senddock.dev/api/v1/broadcast"
 headers = {
-    "Authorization": "Bearer sdk_tu_secret_key",
+    "Authorization": "Bearer sdk_your_secret_key",
     "Content-Type": "application/json"
 }
 payload = {
     "template": "weekly-digest",
-    "subject": "Noticias Tech",
+    "subject": "Noticias Tecnológicas Semanales",
     "filter": {"status": "active"}
 }
 
@@ -133,13 +133,13 @@ func main() {
 	url := "https://senddock.dev/api/v1/broadcast"
 	payload := map[string]interface{}{
 		"template": "weekly-digest",
-		"subject":  "Noticias Tech",
+		"subject":  "Noticias Tecnológicas Semanales",
 		"filter":   map[string]string{"status": "active"},
 	}
 	jsonData, _ := json.Marshal(payload)
 
 	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
-	req.Header.Set("Authorization", "Bearer sdk_tu_secret_key")
+	req.Header.Set("Authorization", "Bearer sdk_your_secret_key")
 	req.Header.Set("Content-Type", "application/json")
 
 	resp, _ := http.DefaultClient.Do(req)
@@ -162,14 +162,14 @@ public class SendBroadcast {
         String json = """
             {
                 "template": "weekly-digest",
-                "subject": "Noticias Tech",
+                "subject": "Noticias Tecnológicas Semanales",
                 "filter": { "status": "active" }
             }
         """;
 
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://senddock.dev/api/v1/broadcast"))
-            .header("Authorization", "Bearer sdk_tu_secret_key")
+            .header("Authorization", "Bearer sdk_your_secret_key")
             .header("Content-Type", "application/json")
             .POST(HttpRequest.BodyPublishers.ofString(json))
             .build();

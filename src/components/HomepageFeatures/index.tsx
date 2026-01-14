@@ -1,86 +1,75 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
+import Translate from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 type FeatureItem = {
-  title: string;
+  titleId: string;
+  titleDefault: string;
   icon: string;
-  description: ReactNode;
+  descriptionId: string;
+  descriptionDefault: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'API Simple',
+    titleId: 'features.simpleApi.title',
+    titleDefault: 'Simple API',
     icon: '🚀',
-    description: (
-      <>
-        API REST limpia e intuitiva. Envía tu primer email en menos de 2 minutos.
-        Sin configuración compleja requerida.
-      </>
-    ),
+    descriptionId: 'features.simpleApi.description',
+    descriptionDefault: 'Clean and intuitive REST API. Send your first email in under 2 minutes. No complex configuration required.',
   },
   {
-    title: 'Tu SMTP, Tus Reglas',
+    titleId: 'features.yourSmtp.title',
+    titleDefault: 'Your SMTP, Your Rules',
     icon: '📮',
-    description: (
-      <>
-        Usa tu propio proveedor SMTP (AWS SES, SendGrid, etc.). Tú tienes la infraestructura,
-        nosotros proporcionamos la interfaz.
-      </>
-    ),
+    descriptionId: 'features.yourSmtp.description',
+    descriptionDefault: 'Use your own SMTP provider (AWS SES, SendGrid, etc.). You own the infrastructure, we provide the interface.',
   },
   {
-    title: 'Para Desarrolladores',
+    titleId: 'features.forDevelopers.title',
+    titleDefault: 'For Developers',
     icon: '💻',
-    description: (
-      <>
-        Hecho por desarrolladores, para desarrolladores. Soporte completo de TypeScript, documentación
-        completa, y ejemplos del mundo real.
-      </>
-    ),
+    descriptionId: 'features.forDevelopers.description',
+    descriptionDefault: 'Built by developers, for developers. Full TypeScript support, comprehensive documentation, and real-world examples.',
   },
   {
-    title: 'Emails Transaccionales',
+    titleId: 'features.transactional.title',
+    titleDefault: 'Transactional Emails',
     icon: '📧',
-    description: (
-      <>
-        Perfecto para emails de bienvenida, recuperación de contraseña, notificaciones, y más.
-        Sistema de plantillas con soporte Handlebars.
-      </>
-    ),
+    descriptionId: 'features.transactional.description',
+    descriptionDefault: 'Perfect for welcome emails, password recovery, notifications, and more. Template system with Handlebars support.',
   },
   {
-    title: 'Gestión de Suscriptores',
+    titleId: 'features.subscribers.title',
+    titleDefault: 'Subscriber Management',
     icon: '👥',
-    description: (
-      <>
-        Administra tus listas de correo, waitlists y newsletters. Rastrea suscriptores
-        con metadata personalizada.
-      </>
-    ),
+    descriptionId: 'features.subscribers.description',
+    descriptionDefault: 'Manage your mailing lists, waitlists, and newsletters. Track subscribers with custom metadata.',
   },
   {
-    title: 'Broadcasts',
+    titleId: 'features.broadcasts.title',
+    titleDefault: 'Broadcasts',
     icon: '📨',
-    description: (
-      <>
-        Envía correos masivos a tu audiencia con filtrado y segmentación.
-        Perfecto para newsletters y anuncios.
-      </>
-    ),
+    descriptionId: 'features.broadcasts.description',
+    descriptionDefault: 'Send mass emails to your audience with filtering and segmentation. Perfect for newsletters and announcements.',
   },
 ];
 
-function Feature({title, icon, description}: FeatureItem) {
+function Feature({titleId, titleDefault, icon, descriptionId, descriptionDefault}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center" style={{fontSize: '4rem', marginBottom: '1rem'}}>
         {icon}
       </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+        <Heading as="h3">
+          <Translate id={titleId}>{titleDefault}</Translate>
+        </Heading>
+        <p>
+          <Translate id={descriptionId}>{descriptionDefault}</Translate>
+        </p>
       </div>
     </div>
   );

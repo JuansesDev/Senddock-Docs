@@ -4,17 +4,17 @@ sidebar_position: 4
 
 # Webhooks
 
-Enviamos peticiones `POST` a tu URL configurada cuando ocurren eventos importantes.
+Enviamos solicitudes `POST` a tu URL configurada cuando ocurren eventos.
 
 ## Eventos
 
-*   `join.success`: Un nuevo usuario se ha suscrito.
-*   `mailer.failed`: Falló el envío de un correo (ej. error SMTP).
-*   `bulk.complete`: Se completó el envío de un broadcast.
+*   `join.success`: Un nuevo usuario se suscribió.
+*   `mailer.failed`: Un correo no se pudo enviar (ej. error SMTP).
+*   `bulk.complete`: Un broadcast terminó de enviarse.
 
 ## Seguridad
 
-Verifica el header `X-SendDock-Signature` para asegurar que la petición es genuina.
+Verifica el encabezado `X-SendDock-Signature` para asegurar que la solicitud es genuina.
 
 ```javascript
 const crypto = require('crypto');

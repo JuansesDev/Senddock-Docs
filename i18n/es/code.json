@@ -1,4 +1,72 @@
 {
+  "title": {
+    "message": "Documentación SendDock",
+    "description": "The title in the navbar"
+  },
+  "tagline": {
+    "message": "Plataforma de email para desarrolladores",
+    "description": "The tagline in the hero"
+  },
+  "homepage.getStarted": {
+    "message": "Comenzar",
+    "description": "The get started button on homepage"
+  },
+  "homepage.apiReference": {
+    "message": "Referencia API",
+    "description": "The API reference button on homepage"
+  },
+  "homepage.description": {
+    "message": "Plataforma de email para desarrolladores. Envía correos transaccionales con tu propio SMTP.",
+    "description": "The meta description for the homepage"
+  },
+  "features.simpleApi.title": {
+    "message": "API Simple",
+    "description": "Simple API feature title"
+  },
+  "features.simpleApi.description": {
+    "message": "API REST limpia e intuitiva. Envía tu primer email en menos de 2 minutos. Sin configuración compleja requerida.",
+    "description": "Simple API feature description"
+  },
+  "features.yourSmtp.title": {
+    "message": "Tu SMTP, Tus Reglas",
+    "description": "Your SMTP feature title"
+  },
+  "features.yourSmtp.description": {
+    "message": "Usa tu propio proveedor SMTP (AWS SES, SendGrid, etc.). Tú tienes la infraestructura, nosotros proporcionamos la interfaz.",
+    "description": "Your SMTP feature description"
+  },
+  "features.forDevelopers.title": {
+    "message": "Para Desarrolladores",
+    "description": "For Developers feature title"
+  },
+  "features.forDevelopers.description": {
+    "message": "Hecho por desarrolladores, para desarrolladores. Soporte completo de TypeScript, documentación completa, y ejemplos del mundo real.",
+    "description": "For Developers feature description"
+  },
+  "features.transactional.title": {
+    "message": "Emails Transaccionales",
+    "description": "Transactional Emails feature title"
+  },
+  "features.transactional.description": {
+    "message": "Perfecto para emails de bienvenida, recuperación de contraseña, notificaciones, y más. Sistema de plantillas con soporte Handlebars.",
+    "description": "Transactional Emails feature description"
+  },
+  "features.subscribers.title": {
+    "message": "Gestión de Suscriptores",
+    "description": "Subscriber Management feature title"
+  },
+  "features.subscribers.description": {
+    "message": "Administra tus listas de correo, waitlists y newsletters. Rastrea suscriptores con metadata personalizada.",
+    "description": "Subscriber Management feature description"
+  },
+  "features.broadcasts.title": {
+    "message": "Broadcasts",
+    "description": "Broadcasts feature title"
+  },
+  "features.broadcasts.description": {
+    "message": "Envía correos masivos a tu audiencia con filtrado y segmentación. Perfecto para newsletters y anuncios.",
+    "description": "Broadcasts feature description"
+  },
   "theme.ErrorPageContent.title": {
     "message": "Esta página se ha crasheado.",
     "description": "The title of the fallback page when the page crashed"

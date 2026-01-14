@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import Translate, { translate } from '@docusaurus/Translate';
 
 import styles from './index.module.css';
 
@@ -14,20 +15,20 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          📧 {siteConfig.title}
+          {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
             className="button button--primary button--lg"
             to="/docs/intro">
-            Comenzar 🚀
+            <Translate id="homepage.getStarted">Get Started</Translate>
           </Link>
           <Link
             className="button button--outline button--lg"
             to="/docs/api-reference/introduction"
             style={{ marginLeft: '1rem' }}>
-            Referencia API
+            <Translate id="homepage.apiReference">API Reference</Translate>
           </Link>
         </div>
       </div>
@@ -40,7 +41,10 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Plataforma de email para desarrolladores. Envía correos transaccionales con tu propio SMTP.">
+      description={translate({
+        id: 'homepage.description',
+        message: 'Email platform for developers. Send transactional emails with your own SMTP.',
+      })}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

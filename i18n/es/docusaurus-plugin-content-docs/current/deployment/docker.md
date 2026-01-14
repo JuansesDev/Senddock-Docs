@@ -49,18 +49,18 @@ docker-compose down
    cp env.example .env
    ```
 
-2. **Generar secrets:**
+2. **Generar secretos:**
    ```bash
    # NEXTAUTH_SECRET
    openssl rand -base64 32
-   
+
    # ENCRYPTION_KEY
    openssl rand -hex 32
    ```
 
 3. **Editar `.env` con tus valores**
 
-## 🔍 Health Check
+## 🔍 Verificación de Salud
 
 ```bash
 curl http://localhost:3000/api/health
@@ -72,7 +72,7 @@ curl http://localhost:3000/api/health
 # Ver estado
 make ps
 
-# Backup de DB
+# Respaldo de BD
 make backup-db
 
 # Migraciones
@@ -84,7 +84,7 @@ make clean
 
 ## 📦 Archivos Importantes
 
-- ✅ `Dockerfile` - Configuración de la imagen
+- ✅ `Dockerfile` - Configuración de imagen
 - ✅ `docker-compose.yml` - Orquestación de servicios
 - ✅ `.env` - Variables de entorno
 - ✅ `Makefile` - Comandos de automatización

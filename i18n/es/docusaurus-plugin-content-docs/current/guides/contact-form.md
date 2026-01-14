@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Ejemplo de Formulario de Contacto
 
-Un escenario común: Un usuario llena un formulario de contacto. Tú quieres:
+Un escenario común: Un usuario llena un formulario de contacto. Quieres:
 1. Enviar un correo de confirmación al **Usuario**.
 2. Enviar un correo de notificación al **Admin** (tú).
 
@@ -15,16 +15,16 @@ Este flujo envía **2 correos separados**. Consumirá **2 créditos** de tu cuot
 ## Implementación
 
 ```javascript
-// Esto se ejecutaría en tu ruta de API backend (ej., /api/contact)
+// Esto se ejecutaría en tu ruta de API backend (ej. /api/contact)
 const handleContactForm = async (req, res) => {
   const { userEmail, message, userName } = req.body;
 
   // 1. Enviar Confirmación al Usuario
   await fetch('https://senddock.dev/api/v1/send', {
     method: 'POST',
-    headers: { 
-      'Authorization': 'Bearer sdk_...', 
-      'Content-Type': 'application/json' 
+    headers: {
+      'Authorization': 'Bearer sdk_...',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       email: userEmail,
@@ -36,14 +36,14 @@ const handleContactForm = async (req, res) => {
   // 2. Enviar Notificación al Admin
   await fetch('https://senddock.dev/api/v1/send', {
     method: 'POST',
-    headers: { 
-      'Authorization': 'Bearer sdk_...', 
-      'Content-Type': 'application/json' 
+    headers: {
+      'Authorization': 'Bearer sdk_...',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      email: 'admin@tuempresa.com',
+      email: 'admin@yourcompany.com',
       template: 'admin-new-lead',
-      data: { 
+      data: {
         name: userName,
         message: message,
         email: userEmail
@@ -57,7 +57,7 @@ const handleContactForm = async (req, res) => {
 
 ## Plantillas Requeridas
 
-Necesitarás crear dos plantillas en tu dashboard:
+Necesitarás crear dos plantillas en tu panel:
 
 ### 1. `contact-confirmation`
 Para el correo de confirmación del usuario.

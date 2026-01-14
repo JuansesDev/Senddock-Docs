@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Send Email
 
-Send a transactional email using a template or raw HTML.
+Send a transactional email using a template or direct HTML.
 
 ## Endpoint
 
@@ -21,11 +21,11 @@ POST /api/v1/send
 | `email` or `to` | `string` | **Yes** | Recipient's email. |
 | `template` | `string` | **Yes*** | Template name (e.g. `welcome`). |
 | `html` | `string` | **Yes*** | HTML content (if not using `template`). |
-| `subject` | `string` | No | Override subject. |
+| `subject` | `string` | No | Override the subject. |
 | `data` | `object` | No | Variables to replace in the template. |
 
 :::info
-`template` OR `html` is required.
+Either `template` OR `html` is required.
 :::
 
 ## Examples
@@ -43,7 +43,7 @@ curl -X POST https://senddock.dev/api/v1/send \
   }'
 ```
 
-### Using Raw HTML
+### Using Direct HTML
 
 ```bash
 curl -X POST https://senddock.dev/api/v1/send \
@@ -211,12 +211,12 @@ If you haven't created a custom template in the dashboard, you can use these bui
 - `verification`: For email verification codes.
 - `welcome`: A generic welcome email.
 - `purchase_confirmation`: Simple order confirmation.
-- `credentials`: To send temporary passwords or credentials.
+- `credentials`: For sending temporary passwords or credentials.
 
 ## Template Syntax (Handlebars)
 
 We support full Handlebars syntax:
 
 - **Variables**: `{{name}}`
-- **Conditionals**: `{{#if premium}} ... {{/if}}`
-- **Loops**: `{{#each items}} {{this.name}} {{/each}}`
+- **Conditionals**: `{{#if premium}}`  ... `{{/if}}`
+- **Loops**: `{{#each items}}`  `{{this.name}}`  `{{/each}}`

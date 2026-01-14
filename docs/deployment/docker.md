@@ -53,7 +53,7 @@ docker-compose down
    ```bash
    # NEXTAUTH_SECRET
    openssl rand -base64 32
-   
+
    # ENCRYPTION_KEY
    openssl rand -hex 32
    ```

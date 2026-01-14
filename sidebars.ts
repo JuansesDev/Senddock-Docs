@@ -13,6 +13,70 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     'intro',
+
+    // Getting Started
+    {
+      type: 'category',
+      label: 'Getting Started',
+      collapsed: false,
+      items: [
+        'getting-started/quickstart',
+      ],
+    },
+
+    // Dashboard Guide
+    {
+      type: 'category',
+      label: 'Dashboard Guide',
+      collapsed: false,
+      items: [
+        'dashboard-guide/overview',
+        'dashboard-guide/subscribers',
+      ],
+    },
+
+    // Templates
+    {
+      type: 'category',
+      label: 'Templates',
+      collapsed: false,
+      items: [
+        'templates/visual-editor',
+        'templates/handlebars-variables',
+      ],
+    },
+
+    // SMTP Providers
+    {
+      type: 'category',
+      label: 'SMTP Providers',
+      collapsed: false,
+      items: [
+        'smtp-providers/introduction',
+      ],
+    },
+
+    // Billing
+    {
+      type: 'category',
+      label: 'Billing',
+      collapsed: false,
+      items: [
+        'billing/plans-and-pricing',
+      ],
+    },
+
+    // Analytics
+    {
+      type: 'category',
+      label: 'Analytics',
+      collapsed: false,
+      items: [
+        'analytics/tracking-system',
+      ],
+    },
+
+    // API Reference
     {
       type: 'category',
       label: 'API Reference',
@@ -25,16 +89,40 @@ const sidebars: SidebarsConfig = {
         'api-reference/webhooks',
       ],
     },
+
+    // Migration
+    {
+      type: 'category',
+      label: 'Migration',
+      collapsed: false,
+      items: [
+        'migration/from-mailchimp',
+      ],
+    },
+
+    // Use Cases
+    {
+      type: 'category',
+      label: 'Use Cases',
+      collapsed: false,
+      items: [
+        'use-cases/transactional-emails',
+      ],
+    },
+
+    // Guides
     {
       type: 'category',
       label: 'Guides',
       collapsed: false,
       items: [
-        'guides/contact-form',
         'guides/waitlist',
         'guides/newsletter',
+        'guides/contact-form',
       ],
     },
+
+    // Deployment (commented out for now)
     /*
     {
       type: 'category',
