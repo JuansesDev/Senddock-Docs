@@ -1,11 +1,11 @@
 {
-  "title": {
+  "homepage.title": {
     "message": "Documentación SendDock",
-    "description": "The title in the navbar"
+    "description": "The main title on homepage"
   },
-  "tagline": {
+  "homepage.tagline": {
     "message": "Plataforma de email para desarrolladores",
-    "description": "The tagline in the hero"
+    "description": "The tagline on homepage"
   },
   "homepage.getStarted": {
     "message": "Comenzar",
